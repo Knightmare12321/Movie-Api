@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../styles/main-nav.css";
 
 const Nav = () => {
+    
   function blur(e) {
     e.target.blur();
   }
