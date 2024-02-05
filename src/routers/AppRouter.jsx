@@ -8,6 +8,8 @@ import PageHome from "../pages/PageHome";
 import PageAbout from "../pages/PageAbout";
 import PageMovie from "../pages/PageMovie";
 import PageFavorite from "../pages/PageFavorite";
+import PageWatchList from "../pages/PageWatchList";
+import PageNotFound from "../pages/PageNotFound";
 
 function AppRouter() {
     return (
@@ -31,3 +33,5 @@ function AppRouter() {
       </BrowserRouter>
     );
   }
+
+  export default AppRouter;
