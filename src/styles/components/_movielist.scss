@@ -1,18 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; // 根据需要居中或其他对齐方式
+  gap: 1rem; // 设置电影块之间的间隙
+}
 
-      
-      /* Individual movie blocks */
-      .movieblocks {
-        display: grid;
-        flex: 1 1 200px; /* Each block can grow and shrink but starts at 200px */
-        margin: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
-        border-radius: 10px; /* Optional: Rounds the corners */
-        overflow: hidden; /* Keeps the image within the borders of the border-radius */
-        flex-wrap: wrap;
-      }
-      
-      .movieblocks img {
-        width: 100%; /* Makes the image fill the container */
-        height: auto; /* Keeps the image aspect ratio */
-      }
-      
+.movieblocks {
+  flex: 1 1 200px; // 基础宽度为 200px，但允许灵活调整
+  margin: 0.5rem; // 可选，添加一些外边距
+
+  img {
+    width: 100%; // 图片宽度填满整个电影块
+    height: auto; // 保持图片原始纵横比
+    border-radius: 0.5rem; // 可选，为图片添加圆角
+  }
+}
+
+// 媒体查询，适配小屏幕
+@media (max-width: 600px) {
+  .movieblocks {
+    flex-basis: 100%; // 在小屏幕上，电影块宽度为 100%
+  }
+}

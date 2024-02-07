@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/style.scss';
+import '../styles/styles.scss';
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
@@ -13,7 +13,7 @@ const MovieList = () => {
   }, []);
 
   return (
-    <div>
+    <div className='wrapper'>
       {movies.map(movie => (
         <div className='movieblocks'   key={movie.id}>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
