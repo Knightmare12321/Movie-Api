@@ -1,4 +1,9 @@
 // Resets & Generals
 @use './base/reset';
 @use './base/index';
-@use '/src/styles/components/movielist';
+// Components
+@use './components/header';
+@use './components/main';
+@use './components/footer';
+@use './components/hamburger';
+@use './components/movielist';

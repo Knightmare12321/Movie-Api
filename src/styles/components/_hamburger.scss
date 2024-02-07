@@ -1,0 +1,36 @@
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  .box {
+    width: 33.3333%;
+    height: 50%;
+    float: left;
+  }
+  
+  .icon {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+      width: 100%; 
+    height: 100%;
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    cursor: pointer;
+  }
+
+#b1 { background: #fc5c65; }
+#b2 { background: #fd9644; }
+#b3 { background: #fed330; }
+#b4 { background: #eb3b5a; }
+#b5 { background: #fa8231; }
+#b6 { background: #f7b731; }
+.icon { stroke: #FFFFFF; opacity: .95; }
