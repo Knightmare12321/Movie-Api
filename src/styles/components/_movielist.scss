@@ -1,0 +1,18 @@
+
+      
+      /* Individual movie blocks */
+      .movieblocks {
+        display: grid;
+        flex: 1 1 200px; /* Each block can grow and shrink but starts at 200px */
+        margin: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
+        border-radius: 10px; /* Optional: Rounds the corners */
+        overflow: hidden; /* Keeps the image within the borders of the border-radius */
+        flex-wrap: wrap;
+      }
+      
+      .movieblocks img {
+        width: 100%; /* Makes the image fill the container */
+        height: auto; /* Keeps the image aspect ratio */
+      }
+      
