@@ -59,6 +59,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+  body {
+    min-height: 100vh;
+  }
   a:hover {
     color: #747bff;
   }

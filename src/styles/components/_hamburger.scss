@@ -1,38 +1,58 @@
 @use "../base/variables" as *;
 
 #container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
-  .box {
-    width: 15vw;
-    height: 5rem;
-    float: left;
-  }
-  
-  .icon {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-      width: 100%; 
-    height: 100%;
-      fill: none;
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    cursor: pointer;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-#b1 { background: #fc5c65; }
-#b2 { background: #fd9644; }
-#b3 { background: $header-color; }
-#b4 { background: #eb3b5a; }
-#b5 { background: #fa8231; }
-#b6 { background: #f7b731; }
-.icon { stroke: $text-primary-color; opacity: .95; }
+.box {
+  width: 15vw;
+  height: 5rem;
+  float: left;
+}
+
+.icon {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  cursor: pointer;
+}
+
+#b1 {
+  background: #fc5c65;
+}
+#b2 {
+  background: #fd9644;
+}
+#b3 {
+  background: $header-color; //I am using this one
+}
+#b4 {
+  background: #eb3b5a;
+}
+#b5 {
+  background: #fa8231;
+}
+#b6 {
+  background: #f7b731;
+}
+.icon {
+  stroke: $text-primary-color;
+  opacity: 0.95;
+}
+
+@media (min-width: 620px) {
+  .box {
+    display: none;
+  }
+}
