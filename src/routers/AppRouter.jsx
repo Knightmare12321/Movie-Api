@@ -14,7 +14,7 @@ import PageNotFound from "../pages/PageNotFound";
 function AppRouter() {
     return (
       <BrowserRouter>
-        <div className="wrapper">
+        <div>
           <Header />
           <Routes>
             <Route path="/" exact element={<PageHome />} />
