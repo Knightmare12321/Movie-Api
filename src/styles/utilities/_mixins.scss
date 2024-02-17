@@ -1,0 +1,52 @@
+//centering an element (wrapper)
+@mixin margin-center {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin flatten($is-list: false, $is-text: true) {
+  margin: 0;
+  padding: 0;
+  @if($is-list: true){
+      list-style: none;
+  }
+  @if($is-text) {
+      line-height: 1;
+  }
+  
+}
+
+//styles for unordered list
+@mixin ul-base {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+//mixins for flex layout
+
+//centering elements in a flex container
+@mixin flex-layout-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+//mixins for creating a flex row of evenly spaced elements
+@mixin flex-layout-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin flex-layout-column-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+

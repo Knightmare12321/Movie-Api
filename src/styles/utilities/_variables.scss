@@ -1,0 +1,50 @@
+//basic variables for application
+@use "sass:math";
+//font and font size
+
+//Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@300;400;600&display=swap');
+
+$site-font: 'Montserrat', sans-serif;
+
+$logo-font: 'Archivo Black', sans-serif;
+// Fonts
+$body-font: 'EB Garamond', serif;
+$heading-font: 'Jost', sans-serif;
+$nav-font: 'Jost', sans-serif;
+
+$standard-font-size: 1rem;
+$medium-font-size: 1.5rem;
+$large-font-size: 2rem;
+
+$site-line-height: 1.5;
+$line-height: 1.4;
+
+//colors
+$site-blue: #61d0d4;
+$site-orange: rgb(38, 184, 176);
+$pink: #d75b5b;
+$light-grey: #545657;
+$dark-grey: #2b2929;
+$black: #262525;
+$light: #f4f4f4;
+$light-bg: #dee2e6;
+$grey-color-light: lighten($dark-grey, 32);
+//common spacing
+$small-spacing: 0.5rem;
+$base-spacing: 1rem;
+$medium-spacing: 1.5rem;
+$double-spacing: 2rem;
+
+//max width for <main>
+$main-max-width: 1920px;
+
+//media query breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-lg: 1400px;
+
+@function em($px, $bc: 16){
+    @return #{math.div($px, $bc)}em;
+}
