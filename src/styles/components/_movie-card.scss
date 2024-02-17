@@ -1,0 +1,111 @@
+//styling for movie cards
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.single-movie-card {
+  @include margin-center;
+  background-color: grey;
+  margin: 0;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  padding: em(5) em(6);
+  padding-top: em(20);
+  border-radius: 12px;
+
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 4px,
+    rgba(0, 0, 0, 0.4) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 1/1.5;
+  }
+
+  .movie-card-content {
+    width: 88%;
+    @include margin-center;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-top: 0.9rem;
+  }
+
+  .poster-wrapper {
+    position: relative;
+  }
+
+  .rating-score {
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.2rem 0.8rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: $site-orange;
+  }
+
+  .poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $light;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+    backdrop-filter: blur(3px);
+    transition: all ease-in 0.2s;
+
+    p {
+      font-size: 1rem;
+
+      &.hover-release-date {
+        margin-top: 2rem;
+        margin-bottom: 0;
+      }
+
+      &.hover-movie-overview {
+        text-align: left;
+        margin: 0.5rem;
+      }
+      @media (min-width: $breakpoint-desktop) {
+        font-size: 0.9rem;
+      }
+      @media (min-width: $breakpoint-desktop-lg) {
+        font-size: 1.1rem;
+        &.hover-movie-overview {
+          margin: 0.8rem;
+        }
+      }
+    }
+
+    a {
+      margin-top: 0.3rem;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid $site-orange;
+      border-radius: 6px;
+      transition: all 0.4s;
+      font-size: 0.9rem;
+      color: $site-orange;
+
+      &:hover {
+        background-color: $site-orange;
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .poster-wrapper:hover .poster-overlay {
+    opacity: 1;
+  }
+}
