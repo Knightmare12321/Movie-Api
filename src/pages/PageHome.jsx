@@ -7,8 +7,7 @@ import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
-import { FaHeart} from 'react-icons/fa';
-import { FaRegHeart } from 'react-icons/fa';
+import FavButton from '../components/FavButton';
 import { addFav, deleteFav } from '../features/fav/favSlice';
 
 const PageHome = () => {
@@ -90,13 +89,13 @@ useEffect(() => {
                             </div> :
                             <div className="movies-grid">
                                 {filteredMovies.map(movie =>
-                                    <MovieCard key={movie.id} movie={movie} >
-                                        {<div className='fav-children'>
+                                    <MovieCard key={movie.id} movie={movie} isFav={inFav(movie.id, favs)}>
+                                        {/* {<div className='fav-children'>
                                             {inFav(movie.id, favs) === true ?
                                                 <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
                                                 <FaRegHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
                                             }
-                                        </div>}
+                                        </div>} */}
                                     </MovieCard>)
                                 }
                             </div>
