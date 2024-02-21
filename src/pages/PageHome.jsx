@@ -7,6 +7,7 @@ import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
+import { isIn } from '../utils/isIn';
 import FavButton from '../components/FavButton';
 import { addFav, deleteFav } from '../features/fav/favSlice';
 
@@ -17,6 +18,7 @@ const PageHome = () => {
     const value = useSelector((state) => state.movie.value)
     const filteredMovies = useSelector((state) => state.movie.filteredMovies)
     const favs = useSelector((state) => state.fav.favs)
+    const watchlists = useSelector((state) => state.watch.watchlists)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -63,10 +65,6 @@ useEffect(() => {
         dispatch(filterMovie(""))
     }
 
-    function inFav(id, arr) {
-        return arr.some(item => item.id == id)
-    }
-
     return (
         <main>
             <section className="home-main-section">
@@ -89,7 +87,7 @@ useEffect(() => {
                             </div> :
                             <div className="movies-grid">
                                 {filteredMovies.map(movie =>
-                                    <MovieCard key={movie.id} movie={movie} isFav={inFav(movie.id, favs)}>
+                                    <MovieCard key={movie.id} movie={movie} isFav={isIn(movie.id, favs)} isWatch={isIn(movie.id, watchlists)}>
                                         {/* {<div className='fav-children'>
                                             {inFav(movie.id, favs) === true ?
                                                 <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :

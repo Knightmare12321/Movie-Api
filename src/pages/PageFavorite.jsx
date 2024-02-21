@@ -2,10 +2,12 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { appTitle } from "../globals/globals";
 import { useSelector } from "react-redux";
+import { isIn } from "../utils/isIn";
 import MovieCard from "../components/MovieCard";
 
 const PageFavorite = () => {
     const favs = useSelector((state) => state.fav.favs);
+    const watchlists = useSelector((state) => state.watch.watchlists);
     console.log(favs);
     useEffect(() => {
         document.title = `${appTitle} - Favorites`;
@@ -28,6 +30,7 @@ const PageFavorite = () => {
                   key={i}
                   movie={obj}
                   isFav={true}
+                  isWatch={isIn(obj.id, watchlists)}
                 />
               );
             })}
