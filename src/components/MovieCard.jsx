@@ -1,18 +1,30 @@
 import noPoster from "../images/no-movie-poster.jpg";
 import FavButton from "./FavButton";
+import WatchButton from "./WatchButton";
 import { baseImageUrl } from "../globals/globals";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addFav, deleteFav } from "../features/fav/favSlice";
+import { addWatch, deleteWatch } from "../features/watchlist/watchlistSlice";
 
-function MovieCard({ movie, children, isFav}) {
+function MovieCard({ movie, children, isFav, isWatch}) {
   const dispatch = useDispatch();
+
   function handleFavClick(addToFav, obj) {
     if (addToFav === true) {
       console.log(obj);
       dispatch(addFav(obj));
     } else {
       dispatch(deleteFav(obj));
+    }
+  }
+
+  function handleWatchClick(addToWatch, obj) {
+    if (addToWatch === true) {
+      console.log(obj);
+      dispatch(addWatch(obj));
+    } else {
+      dispatch(deleteWatch(obj));
     }
   }
 
@@ -58,6 +70,11 @@ function MovieCard({ movie, children, isFav}) {
           { isFav? 
           <FavButton characterObj={movie} remove={isFav} handleFavClick={handleFavClick}/> :
           <FavButton characterObj={movie} handleFavClick={handleFavClick}/> }
+        </div>
+        <div className="btn-watch">
+          { isWatch? 
+          <WatchButton characterObj={movie} remove={isWatch} handleWatchClick={handleWatchClick}/> :
+          <WatchButton characterObj={movie} handleWatchClick={handleWatchClick}/> }
         </div>
         
       </div>
