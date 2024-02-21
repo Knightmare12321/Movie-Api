@@ -71,7 +71,7 @@ function MovieCard({ movie, children, isFav, isWatch}) {
           <FavButton characterObj={movie} remove={isFav} handleFavClick={handleFavClick}/> :
           <FavButton characterObj={movie} handleFavClick={handleFavClick}/> }
         </div>
-        <div className="btn-watch">
+        <div className="btn-favorite">
           { isWatch? 
           <WatchButton characterObj={movie} remove={isWatch} handleWatchClick={handleWatchClick}/> :
           <WatchButton characterObj={movie} handleWatchClick={handleWatchClick}/> }
