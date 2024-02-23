@@ -3,6 +3,7 @@ const FilterBar = ({ onChange, placeholder, onClick, value }) => {
         <div className="select-container" >
             <input
                 className="select-input"
+                id="search-bar-input"
                 type="text"
                 onChange={onChange}
                 placeholder={placeholder}

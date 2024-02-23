@@ -25,6 +25,12 @@
   .movie-card-content {
     width: 88%;
     @include margin-center;
+    #movie-title {
+      color: white;
+        &:hover {
+          color: rgb(214, 213, 213);
+        }
+    }
   }
 
   h3 {
