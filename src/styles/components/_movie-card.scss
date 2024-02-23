@@ -120,11 +120,11 @@
 
   .poster-wrapper:hover .poster-overlay {
     opacity: 1;
-    transform: scale(1.18);
+    transform: scale(1.2);
     transition: all ease-in 0.2s;
   }
   .poster-wrapper:hover img {
-    transform: scale(1.18);
+    transform: scale(1.2);
     transition: all ease-in 0.2s;
   }
 }
