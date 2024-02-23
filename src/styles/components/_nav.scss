@@ -24,6 +24,9 @@
                 font-family: $text-font;
                 font-size: 1.5rem;
                 color: $text-primary-color;
+                &:hover {
+                    color: white;
+                }
             }
         }
     }
