@@ -4,7 +4,7 @@
 
 // Components
 @use './components/heart';
-@use './components/button';   
+ 
 @use './components/about';
 @use './components/header';
 @use './components/nav';
@@ -13,3 +13,4 @@
 @use './components/hamburger';
 @use './components/movie-card';
 @use './components/movies-grid';
+@use './components/single-movie';
