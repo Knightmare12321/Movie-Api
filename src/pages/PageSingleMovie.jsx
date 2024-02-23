@@ -6,12 +6,14 @@ import { addFav, deleteFav } from '../features/fav/favSlice';
 import SingleMovie from '../components/SingleMovie';
 import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
-import { FaHeart} from 'react-icons/fa';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart, FaEye,FaPlus } from 'react-icons/fa';
+import WatchButton from '../components/WatchButton';
+import { addWatch, deleteWatch } from '../features/watchlist/watchlistSlice';
 
 const PageIndividualMovie = () => {
     const { id } = useParams();
     const favs = useSelector((state) => state.fav.favs)
+    const watchs = useSelector((state) => state.watch.watchlists)
     const dispatch = useDispatch()
     const [movie, setMovie] = useState(null)
     const [error, setError] = useState(null);
@@ -41,7 +43,10 @@ const PageIndividualMovie = () => {
     function inFav(id, arr) {
         return arr.some(item => item.id == id)
     }
-
+   function isWatched(id,arr) {
+        
+        return arr.some(item => item.id == id)
+    }
     return (
         <main>
             <section className="singleMovie-main-section">
@@ -58,7 +63,16 @@ const PageIndividualMovie = () => {
                                             <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
                                             <FaRegHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
                                         }
+
                                     </div>}
+                                    {<div className='watch-button-container'>
+                                        {isWatched(id,watchs) === true? 
+                                            <FaEye className="eye" onClick={()=> dispatch(deleteWatch(movie))} /> :
+                                            <FaPlus className="add-watch" onClick={() => dispatch(addWatch(movie))} />
+                                        }
+                                        
+                                        
+                                        </div>}
                                 </SingleMovie>
                                 <Link to="/" className="link-back-to-home">Back</Link>
                             </div> :

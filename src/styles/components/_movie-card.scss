@@ -38,16 +38,17 @@
 
   .rating-score {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 2rem;
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 0;
     padding: 0.2rem 0.8rem;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    color: $site-orange;
+    color: orange ;
+    z-index: 3;
   }
 
   .poster-overlay {
@@ -57,7 +58,7 @@
     right: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     color: $light;
     border-radius: 5px;
     text-align: center;
@@ -71,7 +72,7 @@
       font-size: 1rem;
 
       &.hover-release-date {
-        margin-top: 2rem;
+        margin-top:2rem;
         margin-bottom: 0;
       }
 
@@ -88,10 +89,21 @@
           margin: 0.8rem;
         }
       }
+      @media (min-width: 1620px) {
+        font-size: 0.7rem;
+        &.hover-movie-overview {
+          margin: 0.4rem;
+      }
+        &.hover-release-date {
+          margin-top:10rem;
+        }
+      
+    }
+
     }
 
     a {
-      margin-top: 0.3rem;
+    
       padding: 0.2rem 0.5rem;
       border: 1px solid $site-orange;
       border-radius: 6px;
@@ -108,5 +120,11 @@
 
   .poster-wrapper:hover .poster-overlay {
     opacity: 1;
+    transform: scale(1.18);
+    transition: all ease-in 0.2s;
+  }
+  .poster-wrapper:hover img {
+    transform: scale(1.18);
+    transition: all ease-in 0.2s;
   }
 }
