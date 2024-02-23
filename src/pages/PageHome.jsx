@@ -8,8 +8,9 @@ import { api } from '../globals/globals';
 import { baseUrl } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
 import { isIn } from '../utils/isIn';
-import FavButton from '../components/FavButton';
-import { addFav, deleteFav } from '../features/fav/favSlice';
+
+
+
 
 const PageHome = () => {
     const [error, setError] = useState(null);

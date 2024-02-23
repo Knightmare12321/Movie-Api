@@ -1,0 +1,189 @@
+//styling for single movie page
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.singleMovie-main-section {
+  padding: 0 $medium-spacing;
+  width: 100%;
+}
+
+.single-movie {
+  margin: $base-spacing 0.3rem;
+  background-color: grey;
+  padding: $base-spacing;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  // styling for horizontal scroll bar 
+  ::-webkit-scrollbar {
+    background-color: $light-grey;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(purple, 0.8);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba($site-orange, 1);
+  }
+
+  p {
+    line-height: 1.8;
+    margin-right: $small-spacing;
+    color: $light;
+    font-size: 0.9rem;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    max-width: 500px;
+    @include margin-center;
+
+  }
+
+  h2 {
+    margin-bottom: 0;
+    color: $light;
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    color: $site-orange;
+    margin-bottom: 0;
+    margin-top: 0.8rem;
+  }
+
+  .fav-button-container{
+    margin: 10px;
+    padding: 10px 20px;
+  }
+  .timing-info {
+    display: flex;
+    p:nth-of-type(1) {
+      margin-right: 1rem;
+    }
+
+    p:nth-of-type(2) {
+      margin-right: 0;
+    }
+
+    p {
+      opacity: 0.65;
+    }
+  }
+
+  .voteAndFav-info {
+    display: flex;
+    align-items: center;
+
+    .single-movie-score {
+      margin-right: 1rem;
+     
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: $site-orange;
+    
+      @include flex-layout-row-center;
+      .star{
+        margin-right: em(2);
+        font-size: $large-font-size;
+      }
+    }
+  }
+
+  .sub-icon-group {
+    margin-top: 0.8rem;
+    @include flex-layout-row-center;
+
+  }
+
+  .genre-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    p {
+      margin-bottom: 0;
+      margin-right: 0.7rem;
+    }
+  }
+
+  .producer-info,
+  .character-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    h3 {
+      width: 100%;
+    }
+  }
+
+  p.crew {
+    margin-right: 0.7rem;
+    margin-bottom: 0;
+  }
+
+
+  @media (min-width: $breakpoint-mobile) {
+    margin-top: $double-spacing;
+    margin-bottom: $double-spacing;
+
+    h2 {
+      text-align: center;
+    }
+
+    .sub-icon-group {
+      display: flex;
+      justify-content: center;
+    }
+
+    .timing-info {
+      margin-right: 1rem;
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    padding-top: 2rem;
+
+    .single-movie-overview-info {
+      padding-top: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    img {
+      max-width: 375px;
+    }
+
+    .single-movie-main-grid {
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      gap: $medium-spacing;
+      align-items: center;
+      margin-top: $base-spacing;
+      margin-bottom: $base-spacing;
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    .sub-icon-group {
+      justify-content: flex-start;
+    }
+
+    .other-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $small-spacing;
+    }
+  }
+}
