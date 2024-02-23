@@ -3,6 +3,7 @@ import noPoster from "../images/no-movie-poster.jpg";
 import { baseImageUrl } from "../globals/globals";
 import { AiFillStar } from 'react-icons/ai';
 
+
 function SingleMovie({ movie, children }) {
 
     const getCrewInfo = (position) => {

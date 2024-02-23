@@ -43,13 +43,6 @@
     max-width: 500px;
     @include margin-center;
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-    }
   }
 
   h2 {
@@ -64,37 +57,10 @@
     margin-top: 0.8rem;
   }
 
-  .singlePage-fav-btn {
-    button {
-      display: block;
-      padding: 0.3rem 0.7rem;
-      background-color: $light-grey;
-      border-radius: 10px;
-      transition: all 0.3s;
-
-      &:hover {
-        box-shadow: rgba(#fff, 0.3) 0px 0px 0px 2px;
-
-        svg {
-          animation: shake 200ms infinite;
-          animation-timing-function: linear;
-        }
-
-        @keyframes shake {
-          0% {
-            transform: rotate(8deg);
-          }
-          50% {
-            transform: rotate(-8deg);
-          }
-          100% {
-            transform: rotate(8deg);
-          }
-        }
-      }
-    }
+  .fav-button-container{
+    margin: 10px;
+    padding: 10px 20px;
   }
-
   .timing-info {
     display: flex;
     p:nth-of-type(1) {
