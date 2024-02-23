@@ -1,0 +1,32 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.red-heart {
+    color: $pink;
+    font-size: $large-font-size;
+    margin-top: em(3);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: scale(1.1);
+    }
+
+}
+.white-heart{
+    background-color: none;
+    color: $pink;
+    font-weight: 600;
+    font-size: $large-font-size;
+    margin-top: em(3);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+.top-container{
+    margin-left: 4.8px;
+    margin-right: 4.8px;
+    text-align: center;
+    color: white;
+}

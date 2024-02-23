@@ -11,6 +11,8 @@ import { isIn } from '../utils/isIn';
 import FavButton from '../components/FavButton';
 import { addFav, deleteFav } from '../features/fav/favSlice';
 
+
+
 const PageHome = () => {
     const [error, setError] = useState(null);
     const selection = useSelector((state) => state.movie.selection)
