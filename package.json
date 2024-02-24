@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Knightmare12321.github.io/Movie-Api/",
   "name": "movie-api",
   "private": true,
   "version": "0.0.0",
@@ -15,7 +16,6 @@
     "Kenny",
     "Chuan"
   ],
-  "homepage": "https://Knightmare12321.github.io/Movie-Api/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "react": "^18.2.0",
