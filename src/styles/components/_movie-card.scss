@@ -27,7 +27,7 @@
     @include margin-center;
     #movie-title {
       color: white;
-        &:hover {
+        h3:hover {
           color: rgb(214, 213, 213);
         }
     }

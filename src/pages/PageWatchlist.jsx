@@ -14,7 +14,7 @@ const PageWatchList = () => {
       }, []);
 
     return (
-        <main>
+        <main className="main-fav-watch">
         <section>
         <h2>My Watchlists</h2>
         {watchlists == undefined || watchlists.length < 1 ? (
