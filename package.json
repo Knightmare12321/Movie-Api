@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "contributors": [
     "Kenny",
     "Chuan"
   ],
+  "homepage": "https://Knightmare12321.github.io/Movie-Api/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "react": "^18.2.0",
@@ -30,6 +33,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.1.1",
     "vite": "^5.0.8"
   }
 }
