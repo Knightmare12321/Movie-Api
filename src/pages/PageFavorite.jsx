@@ -14,7 +14,7 @@ const PageFavorite = () => {
       }, []);
 
     return (
-        <main>
+        <main className="main-fav-watch">
         <section>
         <h2>My Favourites</h2>
         {favs == undefined || favs.length < 1 ? (

@@ -63,7 +63,7 @@ function MovieCard({ movie, children, isFav, isWatch}) {
           </div>
  
         </div>
-        <Link to={`/movie/${movie.id}`}>
+        <Link id="movie-title" to={`/movie/${movie.id}`}>
           <h3>{movie.title}</h3>
         </Link>
         <div className="btn-favorite">
