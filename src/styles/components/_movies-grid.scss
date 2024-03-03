@@ -22,8 +22,8 @@
     gap:2rem;
   }
   @media (min-width: $breakpoint-desktop-lg) {
-    grid-template-columns: repeat(6, 1fr);
-    gap:1rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap:3rem;
   }
 
 
