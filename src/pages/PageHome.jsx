@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react';
 import { appTitle } from '../globals/globals';
 import FilterBar from '../components/FilterBar';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMovies, setUrl, setSelection, filterMovie } from '../features/movie/movieSlice';
-import { api } from '../globals/globals';
-import { baseUrl } from '../globals/globals';
+import { getMovies, setUrl, setSelection, filterMovie, setSearchQuery } from '../features/movie/movieSlice';
+import { api, baseUrl, baseImageUrl } from '../globals/globals';
 import MovieCard from '../components/MovieCard';
 import { isIn } from '../utils/isIn';
+import { set } from 'immutable';
 
 
 
 
 const PageHome = () => {
     const [error, setError] = useState(null);
+    const movies = useSelector((state) => state.movie.movies)
     const selection = useSelector((state) => state.movie.selection)
     const url = useSelector((state) => state.movie.url)
     const value = useSelector((state) => state.movie.value)
@@ -26,26 +27,42 @@ const PageHome = () => {
         document.title = `${appTitle} - Home`;
     }, []);
 
-const fetchMovies = async () => {
-    try {
-        const response = await fetch(url)
-        const responseJson = await response.json()
-        const movies = responseJson.results.slice(0, 12)
-        dispatch(getMovies(movies))
-    } catch (e) {
-        setError(e)
+    const fetchMovies = async () => {
+        try {
+            const response = await fetch(url)
+            const responseJson = await response.json()
+            const movies = responseJson.results.slice(0, 20)
+            dispatch(getMovies(movies))
+        } catch (e) {
+            setError(e)
+        }
     }
-}
 
-useEffect(() => {
-    fetchMovies()
-}, [url]);
+    useEffect(() => {
+        fetchMovies()
+    }, [url]);
 
-    
+
+
+
 
     function sort(e) {
-        dispatch(setSelection(e.target.value))
+        dispatch(setSelection(encodeURIComponent(e.target.value)))
         dispatch(setUrl(baseUrl + e.target.value + api))
+
+    }
+    // Define a state for the input value
+    const [inputValue, setInputValue] = useState("");
+
+    // Handler for input changes
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    // Modify the search function to use the state value
+    function search() {
+        const url = `https://api.themoviedb.org/3/search/movie${api}&query=${encodeURIComponent(inputValue)}`;
+        dispatch(setUrl(url));
     }
 
     function createForm() {
@@ -74,27 +91,22 @@ useEffect(() => {
                         <div className="bar-container">
                             {createForm()}
                             <FilterBar
-                                placeholder="filter by title"
-                                onChange={(e) => {
-                                    dispatch(filterMovie(e.target.value))
-                                }}
-                                onClick={cancelfiltering}
-                                value={value}
-                            />
+                            placeholder="search by title"
+                            onClick={search}
+                            value={inputValue}
+                            onChange={handleInputChange}
+                        />
                         </div>
-                        {filteredMovies.length < 1 ?
+                       
+
+                        {movies.length < 1 ?
                             <div className="loading-sect">
                                 <p className="loader">No Result.</p>
                             </div> :
                             <div className="movies-grid">
-                                {filteredMovies.map(movie =>
+                                {movies.map(movie =>
                                     <MovieCard key={movie.id} movie={movie} isFav={isIn(movie.id, favs)} isWatch={isIn(movie.id, watchlists)}>
-                                        {/* {<div className='fav-children'>
-                                            {inFav(movie.id, favs) === true ?
-                                                <FaHeart className="red-heart" onClick={() => dispatch(deleteFav(movie))} /> :
-                                                <FaRegHeart className="white-heart" onClick={() => dispatch(addFav(movie))} />
-                                            }
-                                        </div>} */}
+
                                     </MovieCard>)
                                 }
                             </div>

@@ -23,6 +23,9 @@ export const movieSlice = createSlice({
         setSelection: (state, action) => {
             state.selection = action.payload
         },
+        setSearchQuery: (state, action) => {
+            state.searchQuery = action.payload
+        },
         filterMovie: (state, action) => {
             state.value = action.payload
             let filteredMovies = [...state.movies]
@@ -35,6 +38,18 @@ export const movieSlice = createSlice({
             }
             state.filteredMovies = filteredMovies;
         },
+        searchMovie: (state, action) => {
+            state.value = action.payload
+            let searchedMovies = [...state.movies]
+            if (action.payload) {
+                searchedMovies = searchedMovies.filter(item => {
+                    return (
+                        item.title.toLowerCase().indexOf(action.payload.toLowerCase()) > -1
+                    )
+                })
+            }
+            state.searchedMovies = searchedMovies;
+        },
         selectMovie: (state, action) => {
             state.selectedMovie = action.payload
         }
@@ -43,5 +58,5 @@ export const movieSlice = createSlice({
 
 })
 
-export const { getMovies, setUrl, setSelection, filterMovie, selectMovie } = movieSlice.actions
+export const { getMovies, setUrl, setSelection, filterMovie, selectMovie,setSearchQuery } = movieSlice.actions
 export default movieSlice.reducer;
